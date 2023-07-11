@@ -6,14 +6,12 @@ import { Rating } from '@mui/material';
 function Search_content() {
     const[data,setData]=useState([]);
     const [{basket}]=useStateValue();
-    const[product_data,newdata]=basket;
 
-console.log("<<<DATA<<<<",basket)
 
 useEffect(() => {
  
 
-    axios.get(`https://fakestoreapi.com/products/category/${basket[0]?basket[0].product_data.text:"jewelery"}`).then((response)=>{
+    axios.get(`https://fakestoreapi.com/products/category/${basket.length==1?basket[0].product_data.text:"jewelery"}`).then((response)=>{
 
 console.log("ithnu axios",data?data:"")
 setData(response.data)

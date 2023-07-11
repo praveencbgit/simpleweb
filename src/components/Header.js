@@ -28,15 +28,11 @@ const handleSearch=()=>{
 
 
 
-axios.get(`https://fakestoreapi.com/products/category/${text?text:"jewelery"}`).then((response)=>{
-
-setData(response.data)
-})
 
 
 dispatch(
 {
-type:"IMG_CLICK",
+type:"SEARCH_CONTENT",
 
 product_data:{
 
@@ -76,7 +72,7 @@ text:text
 
     <input onChange={(e)=>setText(e.target.value)} placeholder='Search for products,brands & more' className='box' type="text" 
     />
-   <a href='/search_content'><div  onClick={handleSearch}  className="icon"><SearchIcon/></div></a>
+   <div  onChange={(e)=>{setText(e.target.value)}} onClick={handleSearch}  className="icon"><SearchIcon/></div>
     <div className="category">
         
  <a href='/homes'><li >MEN </li> </a>
